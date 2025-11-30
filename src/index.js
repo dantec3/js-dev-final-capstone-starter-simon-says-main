@@ -81,20 +81,21 @@ startButton.addEventListener("click", startButtonHandler);
  *
  */
 function startButtonHandler() {
-  game.roundsToWin = 5;
-  game.currentRound = 1;
-  game.sequence = [];
-  game.playerMoves = [];
+  // Set up game state
+  maxRoundCount = 5;
+  roundCount = 1;
+  computerSequence = [];
+  playerSequence = [];
 
+  // Update UI
   statusSpan.classList.remove("hidden");
-  statusSpan.textContent = "Game started! Watch the sequence...";
-  startButton.disabled = true;
+  setText(statusSpan, "Game started! Watch the sequence...");
+  startButton.classList.add("hidden");
 
-
+  // Start the game
   playComputerTurn();
-
-  return { startButton, statusSpan };
 }
+
 
 
 
@@ -388,15 +389,17 @@ function checkRound() {
  * 3. Reset `roundCount` to an empty array
  */
 function resetGame(text) {
-  // TODO: Write your code here.
+  computerSequence = [];
+  playerSequence = [];
+  roundCount = 1;
 
-  // Uncomment the code below:
-  // alert(text);
-  // setText(heading, "Simon Says");
-  // startButton.classList.remove("hidden");
-  // statusSpan.classList.add("hidden");
-  // padContainer.classList.add("unclickable");
+  alert(text);
+  setText(heading, "GrandMaster Says");
+  startButton.classList.remove("hidden");
+  statusSpan.classList.add("hidden");
+  padContainer.classList.add("unclickable");
 }
+
 
 /**
  * Please do not modify the code below.
