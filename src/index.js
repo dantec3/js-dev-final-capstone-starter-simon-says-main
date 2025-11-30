@@ -81,20 +81,16 @@ startButton.addEventListener("click", startButtonHandler);
  *
  */
 function startButtonHandler() {
-  // Set the number of rounds needed to win
   game.roundsToWin = 5;
-
-  // Reset game state
   game.currentRound = 1;
   game.sequence = [];
   game.playerMoves = [];
 
-  // Update the game interface
   statusSpan.classList.remove("hidden");
   statusSpan.textContent = "Game started! Watch the sequence...";
   startButton.disabled = true;
 
-  // Begin the computer's turn
+
   playComputerTurn();
 
   return { startButton, statusSpan };
@@ -164,11 +160,7 @@ function setLevel(level = 1) {
   if (!validLevels.includes(level)) {
     return `Error: Invalid level "${level}". Please choose a level between 1 and 4.`;
   }
-
-  // Set the level (you can store it in a global variable or game state)
   game.level = level;
-
-  // Optionally update the UI or log the level
   console.log(`Game level set to ${level}`);
 }
 
@@ -225,14 +217,8 @@ function activatePad(color) {
     console.error(`No pad found for color: ${color}`);
     return;
   }
-
-  // 2. Add the "activated" class to light up the pad
   pad.selector.classList.add("activated");
-
-  // 3. Play the associated sound
   pad.sound.play();
-
-  // 4. Remove the "activated" class after 500ms
   setTimeout(() => {
     pad.selector.classList.remove("activated");
   }, 500);
