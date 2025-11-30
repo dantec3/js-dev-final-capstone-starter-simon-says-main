@@ -81,23 +81,19 @@ startButton.addEventListener("click", startButtonHandler);
  *
  */
 function startButtonHandler() {
-  // Set up game state
   maxRoundCount = 5;
   roundCount = 1;
   computerSequence = [];
   playerSequence = [];
 
-  // Update UI
+
   statusSpan.classList.remove("hidden");
   setText(statusSpan, "Game started! Watch the sequence...");
   startButton.classList.add("hidden");
 
-  // Start the game
+ 
   playComputerTurn();
 }
-
-
-
 
 /**
  * Called when one of the pads is clicked.
