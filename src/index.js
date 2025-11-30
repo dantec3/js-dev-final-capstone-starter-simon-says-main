@@ -123,9 +123,15 @@ function padHandler(event) {
   const { color } = event.target.dataset;
   if (!color) return;
 
-  // TODO: Write your code here.
+  const pad = pads.find(p => p.color === color);
+  pad.sound.play();
+
+  checkPress(color);
+
   return color;
 }
+
+
 
 /**
  * HELPER FUNCTIONS
@@ -302,8 +308,14 @@ function playComputerTurn() {
  * 2. Display a status message showing the player how many presses are left in the round
  */
 function playHumanTurn() {
-  // TODO: Write your code here.
+  // 1. Make pads clickable
+  padContainer.classList.remove("unclickable");
+
+  // 2. Show how many presses are left
+  const pressesLeft = computerSequence.length;
+  setText(statusSpan, `Your turn: ${pressesLeft} move${pressesLeft > 1 ? "s" : ""} left`);
 }
+
 
 /**
  * Checks the player's selection every time the player presses on a pad during
@@ -328,8 +340,25 @@ function playHumanTurn() {
  *
  */
 function checkPress(color) {
-  // TODO: Write your code here.
+
+  playerSequence.push(color);
+
+  const index = playerSequence.length - 1;
+  const remainingPresses = computerSequence.length - playerSequence.length;
+
+  setText(statusSpan, `Your turn: ${remainingPresses} move${remainingPresses !== 1 ? "s" : ""} left`);
+
+  if (playerSequence[index] !== computerSequence[index]) {
+    resetGame("Oops! That was the wrong pad. Game over.");
+    return;
+  }
+
+  if (remainingPresses === 0) {
+    checkRound();
+  }
 }
+
+
 
 /**
  * Checks each round to see if the player has completed all the rounds of the game * or advance to the next round if the game has not finished.
@@ -347,8 +376,21 @@ function checkPress(color) {
  */
 
 function checkRound() {
-  // TODO: Write your code here.
+  if (playerSequence.length === maxRoundCount) {
+    resetGame("Congratulations! You won the game!");
+    return;
+  }
+
+  roundCount++;
+  playerSequence = [];
+
+  setText(statusSpan, "Nice! Keep going!");
+
+  setTimeout(() => {
+    playComputerTurn();
+  }, 1000);
 }
+
 
 /**
  * Resets the game. Called when either the player makes a mistake or wins the game.
