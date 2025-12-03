@@ -35,22 +35,22 @@ const pads = [
   {
     color: "red",
     selector: document.querySelector(".js-pad-red"),
-    sound: new Audio("../assets/simon-says-sound-1.mp3"),
+    sound: new Audio("./assets/simon-says-sound-1.mp3"),
   },
   {
     color: "green",
     selector: document.querySelector(".js-pad-green"),
-    sound: new Audio("../assets/simon-says-sound-2.mp3"),
+    sound: new Audio("./assets/simon-says-sound-2.mp3"),
   },
   {
     color: "blue",
     selector: document.querySelector(".js-pad-blue"),
-    sound: new Audio("../assets/simon-says-sound-3.mp3"),
+    sound: new Audio("./assets/simon-says-sound-3.mp3"),
   },
   {
     color: "orange",
     selector: document.querySelector(".js-pad-orange"),
-    sound: new Audio("../assets/simon-says-sound-4.mp3"),
+    sound: new Audio("./assets/simon-says-sound-4.mp3"),
   },
 ];
 
@@ -81,7 +81,7 @@ startButton.addEventListener("click", startButtonHandler);
  *
  */
 function startButtonHandler() {
-  maxRoundCount = 5;
+  maxRoundCount = 10;
   roundCount = 1;
   computerSequence = [];
   playerSequence = [];
@@ -152,10 +152,10 @@ function padHandler(event) {
  *
  */
 function setLevel(level = 1) {
-  const validLevels = [1, 2, 3, 4];
+  const validLevels = [1, 2, 3, 4,5,6,7,8,9,10];
 
   if (!validLevels.includes(level)) {
-    return `Error: Invalid level "${level}". Please choose a level between 1 and 4.`;
+    return `Error: Invalid level "${level}". Please choose a level between 1 and 10.`;
   }
   game.level = level;
   console.log(`Game level set to ${level}`);

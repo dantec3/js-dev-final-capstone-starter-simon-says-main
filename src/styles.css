@@ -20,7 +20,7 @@ body {
 }
 
 main {
-  background-color: #015;
+  background-color: rgb(44, 51, 78);
   padding: 40px;
 }
 
@@ -48,9 +48,9 @@ h1 {
 }
 
 .start-button:hover {
-  color: greenyellow;
+  color: rgb(255, 47, 47);
   font-size: 18px;
-  border-color: greenyellow;
+  border-color: rgb(109, 47, 255);
   transform: rotate(5deg);
 }
 
@@ -79,7 +79,7 @@ h1 {
 
 .pad-red:active,
 .pad-red.activated {
-  background-color: #ff5c36;
+  background-color: #1803d1;
   transform: translateY(10px);
 }
 
@@ -96,7 +96,7 @@ h1 {
 
 .pad-green:active,
 .pad-green.activated {
-  background-color: #a0ea00;
+  background-color: #ea001f;
   transform: translateY(10px);
 }
 
@@ -113,7 +113,7 @@ h1 {
 
 .pad-orange:active,
 .pad-orange.activated {
-  background-color: #ffca3d;
+  background-color: #f106ca;
   transform: translateY(10px);
 }
 
@@ -130,7 +130,7 @@ h1 {
 
 .pad-blue:active,
 .pad-blue.activated {
-  background-color: #2bbcff;
+  background-color: #caf509;
   transform: translateY(10px);
 }
 
